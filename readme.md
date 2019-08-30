@@ -1,6 +1,6 @@
 # Java引用总结
 
-## 介绍
+## 一、介绍
 
 ### 1、强引用
 强引用是使用最普遍的引用。如果一个对象具有强引用，那垃圾回收器绝不会回收它。当内存空间不足，Java虚拟机宁愿抛出OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足的问题。
@@ -23,32 +23,11 @@
 （ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。
 
 
-## 总结
+## 二、总结
 
-name | 111 | 222 | 333 | 444
-:-: | :-: | :-: | :-: | :-:
-aaa | bbb | ccc | ddd | eee|
-fff | ggg| hhh | iii | 000|
-
-<table>
-  <tr>
-    <th>Tables</th>
-    <th>Are</th>
-    <th>Cool</th>
-  </tr>
-  <tr>
-    <td>col 1 is</td>
-    <td>left-aligned</td>
-    <td>$1600</td>
-  </tr>
-  <tr>
-    <td>col 2 is</td>
-    <td>centered</td>
-    <td>$12</td>
-  </tr>
-  <tr>
-    <td>col 3 is</td>
-    <td>right-aligned</td>
-    <td>$1</td>
-  </tr>
-</table>
+级别 | 垃圾回收时间 | 用途 | 生存时间
+:-: | :-: | :-: | :-:
+强引用 | 从来不会 | 对象的一般状态 | JVM停止运行时终止
+软引用 | 在内存不足时 | 对象简单？缓存 | s内存不足时终止
+弱引用 | 在垃圾回收时 | 对象缓存 | gc运行后终止
+虚引用 | Unknown | Unknown | Unknown
